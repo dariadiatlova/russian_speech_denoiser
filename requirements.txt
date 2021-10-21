@@ -1,5 +1,5 @@
 wheel==0.37.0
-librosa
+librosa~=0.8.1
 matplotlib
 pandas
 scipy
@@ -16,3 +16,4 @@ mpire==2.3.0
 lmdb==1.2.1
 json-lines
 transformers
+numpy~=1.20.3
