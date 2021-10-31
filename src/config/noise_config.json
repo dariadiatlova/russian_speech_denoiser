@@ -1,0 +1,7 @@
+{
+  "noise_directory": "/Users/diat.lov/Data/audio_data/noise/DEMAND/DKITCHEN",
+  "audio_format": "wav",
+  "sum_coefficient": 5,
+  "sample_different": false,
+  "sample_rate": 16000
+}
