@@ -23,40 +23,33 @@ logger = logging.getLogger(__name__)
 
 
 class SpeechDataset(Dataset):
-    SAMPLE_RATE = 16000
 
     def __init__(self, config):
 
         self.config_parser = config
+        self.tokenizer_config = config["speech_dataset"]["tokenizer"]
 
-        self.lmdb_map_size: int = self.config_parser["data"]["train"]["datasets"][0]["map_size"]
-        self.dataset_size: int = self.config_parser["data"]["train"]["datasets"][0]["dataset_size"]
-        self.max_audio_len = self.config_parser["data"]["train"]["datasets"][0]["max_audio_length"]
-        self.use_lmdb = self.config_parser["data"]["train"]["datasets"][0]["lmdb"]
-        self.root_prefix = self.config_parser["data"]["train"]["datasets"][0]["dataset_directory"]
+        for key, value in config["speech_dataset"]["training_params"].items():
+            setattr(self, key, value)
 
-        self.wave_augment = self.config_parser["augmentations"]["wave"]
-        self.spec_augment = self.config_parser["augmentations"]["spectrogram"]
+        for key, value in config["speech_dataset"]["preprocessing"].items():
+            setattr(self, key, value)
 
-        self.lmdb_env = None
-        self.byte_array_shape: Optional[Tuple[int]] = None
-        self.audio_filepath = []
-        self.text = []
-        self.duration = []
-        self.idx = []
+        for key, value in config["speech_dataset"]["augmentations"].items():
+            setattr(self, key, value)
 
-        path = os.path.join(self.root_prefix, self.config_parser["data"]["train"]["datasets"][0]["json_filename"])
+        path = os.path.join(self.dataset_directory_path, self.json_filename)
         with open(path, 'rb') as f:
             for item in json_lines.reader(f):
                 # add to dataset only non empty audio
-                if len(item["text"].strip()) > 0 and item["duration"] < self.max_audio_len:
+                if len(item["text"].strip()) > 0 and item["duration"] < self.max_audio_length:
                     self.audio_filepath.append(item["audio_filepath"])
                     self.text.append(item["text"])
                     self.duration.append(item["duration"])
                     self.idx.append(item["id"])
 
         self._random_index()
-        self.text_encoder = BaseTextEncoder(self.config_parser["tokenizer"], self.text)
+        self.text_encoder = BaseTextEncoder(self.tokenizer_config, self.text)
         logger.info(f"Dataset size: {len(self.text)}.")
 
     def _random_index(self):
@@ -105,10 +98,7 @@ class SpeechDataset(Dataset):
             # TODO: add wave augmentation
             if self.wave_augment:
                 audio_tensor_wave = self.wave_augment(audio_tensor_wave)
-            wave2spec = self.config_parser.init_obj(
-                self.config_parser["preprocessing"]["spectrogram"],
-                torchaudio.transforms,
-            )
+            wave2spec = self.config_parser.init_obj(self.spectrogram_config, torchaudio.transforms)
             audio_tensor_spec = wave2spec(audio_tensor_wave)
 
             # TODO: add spectrogram augmentation
@@ -117,11 +107,11 @@ class SpeechDataset(Dataset):
             return audio_tensor_wave, audio_tensor_spec
 
     def _getitem(self, index: int):
-        path = os.path.join(self.root_prefix, self.audio_filepath[index])
+        path = os.path.join(self.dataset_directory_path, self.audio_filepath[index])
         wav, sr = librosa.load(path, res_type='kaiser_fast')
 
-        if sr != self.SAMPLE_RATE:
-            wav = librosa.resample(wav, sr, self.SAMPLE_RATE)
+        if sr != self.sample_rate:
+            wav = librosa.resample(wav, sr, self.sample_rate)
 
         wav = wav.squeeze()
         audio_tensor_wave, audio_tensor_spec = self.process_wave(torch.FloatTensor(wav))

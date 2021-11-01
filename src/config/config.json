@@ -1,23 +1,6 @@
 {
   "name": "default_config",
   "n_gpu": 0,
-  "preprocessing": {
-    "sr": 16000,
-    "spectrogram": {
-      "type": "MelSpectrogram",
-      "args": {
-      }
-    }
-  },
-  "augmentations": {
-    "wave": false,
-    "spectrogram": false
-  },
-  "tokenizer": {
-    "train_mode": true,
-    "save_path": "/Users/diat.lov/GitHub/russian_speech_denoiser/data/saved/tokenizers/tokenizer_golos.json",
-    "load_path": "/Users/diat.lov/GitHub/russian_speech_denoiser/data/saved/tokenizers/tokenizer_golos.json"
-  },
   "arch": {
     "type": "BaselineModel",
     "args": {
@@ -25,21 +8,41 @@
       "fc_hidden": 512
     }
   },
-  "data": {
-    "train": {
+  "speech_dataset":
+  {
+    "training_params": {
       "batch_size": 20,
       "num_workers": 5,
-      "datasets": [
-        {
-          "json_filename": "manifest.jsonl",
-          "dataset_directory": "/Users/diat.lov/Data/audio_data/golos_opus/train_opus",
-          "lmdb": true,
-          "map_size": 9e12,
-          "dataset_size": 100,
-          "max_audio_length": 20
-        }
-      ]
+      "json_filename": "manifest.jsonl",
+      "dataset_directory_path": "/Users/diat.lov/Data/audio_data/golos_opus/train_opus",
+      "use_lmdb": true,
+      "lmdb_map_size": 9e12,
+      "dataset_size": 100,
+      "max_audio_length": 20,
+      "lmdb_env": null,
+      "byte_array_shape": null,
+      "audio_filepath": [],
+      "text": [],
+      "duration": [],
+      "idx": []
     },
+    "augmentations": {
+      "wave": false,
+      "spectrogram": false
+    },
+    "tokenizer": {
+      "train_tokenizer_mode": false,
+      "tokenizer_path": "/Users/diat.lov/GitHub/russian_speech_denoiser/data/saved/tokenizers/tokenizer_golos.json"
+    },
+    "preprocessing": {
+      "sr": 16000,
+      "spectrogram_config": {
+        "type": "MelSpectrogram",
+        "args": {
+        }
+      }
+    }
+  },
     "val": {
       "batch_size": 20,
       "num_workers": 5,
@@ -53,7 +56,6 @@
           }
         }
       ]
-    }
   },
   "optimizer": {
     "type": "SGD",

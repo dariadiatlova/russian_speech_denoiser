@@ -15,12 +15,12 @@ class BaseTextEncoder:
     def __init__(self, args, vocab: List[int] = None):
         self.tokenizer = Tokenizer(BPE())
         self.tokenizer.pre_tokenizer = Whitespace()
-        if args["train_mode"]:
+        if args["train_tokenizer_mode"]:
             trainer = BpeTrainer(special_tokens=["[UNK]", "[CLS]", "[SEP]", "[PAD]", "[MASK]"])
             self.tokenizer.train_from_iterator(vocab, trainer=trainer)
-            self.tokenizer.save(args["save_path"])
+            self.tokenizer.save(args["tokenizer_path"])
         else:
-            self.tokenizer = self.tokenizer.from_file(args["load_path"])
+            self.tokenizer = self.tokenizer.from_file(args["tokenizer_path"])
 
     def encode(self, text: str) -> Tensor:
         return torch.Tensor(self.tokenizer.encode(text).ids)
