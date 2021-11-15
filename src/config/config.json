@@ -15,9 +15,9 @@
       "num_workers": 5,
       "json_filename": "manifest.jsonl",
       "dataset_directory_path": "/Users/diat.lov/Data/audio_data/golos_opus/train_opus",
-      "use_lmdb": true,
+      "use_lmdb": false,
       "lmdb_map_size": 9e12,
-      "dataset_size": 100,
+      "dataset_size": null,
       "max_audio_length": 20,
       "lmdb_env": null,
       "byte_array_shape": null,
@@ -27,8 +27,8 @@
       "idx": []
     },
     "augmentations": {
-      "wave": false,
-      "spectrogram": false
+      "wave_augment": false,
+      "spec_augment": false
     },
     "tokenizer": {
       "train_tokenizer_mode": false,

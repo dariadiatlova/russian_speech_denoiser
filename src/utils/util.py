@@ -2,7 +2,7 @@ import json
 from collections import OrderedDict
 from itertools import repeat
 from pathlib import Path
-
+import re
 import pandas as pd
 import torch
 import soundfile as sf
@@ -20,6 +20,11 @@ def get_file_paths(directory_path: Union[str, Path]):
 
 
 def write_wav(audio_save_path: str, data: Tensor, samplerate: int = 16_000) -> None:
+    # regex that catch a directory
+    pattern = r"(.*\/)"
+    directory = re.search(pattern, audio_save_path).group(0)
+    if not os.path.exists(directory):
+        os.makedirs(directory)
     sf.write(audio_save_path, data, samplerate=samplerate)
 
 

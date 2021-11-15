@@ -110,8 +110,8 @@ class SpeechDataset(Dataset):
         path = os.path.join(self.dataset_directory_path, self.audio_filepath[index])
         wav, sr = librosa.load(path, res_type='kaiser_fast')
 
-        if sr != self.sample_rate:
-            wav = librosa.resample(wav, sr, self.sample_rate)
+        if sr != self.sr:
+            wav = librosa.resample(wav, sr, self.sr)
 
         wav = wav.squeeze()
         audio_tensor_wave, audio_tensor_spec = self.process_wave(torch.FloatTensor(wav))
