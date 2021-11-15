@@ -1,0 +1,3 @@
+[submodule "denoiser"]
+	path = denoiser
+	url = https://github.com/dariadiatlova/denoiser
