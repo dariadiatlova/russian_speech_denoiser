@@ -1,3 +1,6 @@
 [submodule "denoiser"]
 	path = denoiser
 	url = https://github.com/dariadiatlova/denoiser
+[submodule "DNS-Challenge"]
+	path = DNS-Challenge
+	url = https://github.com/dariadiatlova/DNS-Challenge.git
