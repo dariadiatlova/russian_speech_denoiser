@@ -2,8 +2,8 @@ import logging
 import logging.config
 from pathlib import Path
 
-from src.utils import ROOT_PATH
-from src.utils.util import read_json
+from archive.utils import ROOT_PATH
+from archive.utils.util import read_json
 
 
 def setup_logging(

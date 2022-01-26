@@ -6,9 +6,9 @@ from functools import reduce, partial
 from operator import getitem
 from pathlib import Path
 
-from src.logger.logger import setup_logging
-from src.utils.util import read_json, write_json
-from src.utils import ROOT_PATH
+from archive.logger.logger import setup_logging
+from archive.utils.util import read_json, write_json
+from archive.utils import ROOT_PATH
 
 
 class ConfigParser:

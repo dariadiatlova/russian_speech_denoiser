@@ -4,7 +4,7 @@ import numpy as np
 import re
 
 from typing import List, Tuple, Optional
-from src.utils.util import write_wav
+from archive.utils.util import write_wav
 from os.path import join
 
 from tqdm import trange, tqdm

@@ -14,8 +14,8 @@ from typing import Tuple, Optional
 # to ignore PySoundFile failed. Trying audioread instead. https://github.com/librosa/librosa/issues/1015
 import warnings
 
-from src.dataset.text_encoder import BaseTextEncoder
-from src.utils.parse_config import ConfigParser
+from archive.dataset.text_encoder import BaseTextEncoder
+from archive.utils.parse_config import ConfigParser
 
 warnings.filterwarnings("ignore")
 

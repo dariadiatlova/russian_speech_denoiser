@@ -8,7 +8,7 @@ from typing import Tuple, List
 from tqdm import tqdm
 from os.path import join
 
-from src.utils.util import write_wav
+from archive.utils.util import write_wav
 
 
 def rename_opus_files_to_wav(file_paths, start_dir_name_to_replicate: str,

@@ -1,4 +1,4 @@
-from src.utils.util import get_file_paths
+from archive.utils.util import get_file_paths
 from torch import Tensor
 import torchaudio
 import librosa
