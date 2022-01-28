@@ -4,3 +4,6 @@
 [submodule "DNS-Challenge"]
 	path = DNS-Challenge
 	url = https://github.com/dariadiatlova/DNS-Challenge.git
+[submodule "DTLN"]
+	path = DTLN
+	url = https://github.com/dariadiatlova/DTLN.git
