@@ -18,8 +18,8 @@ For creating noise dataset we used 3 types of noise from [Demand collection](htt
 As of russian sppech, we used radio and youtube domain from [open-stt](https://github.com/snakers4/open_stt). 
 Audio and trascripts can be dowloaded via `wget` from 
 
-    https://azureopendatastorage.blob.core.windows.net/openstt/ru_open_stt_opus 
+    https://azureopendatastorage.blob.core.windows.net/openstt/ru_open_stt_opus/ 
     
-with the following suffixes: 
+with adding the following suffixes to the link above: 
 - `archives/radio_2.tar.gz` (for radio speech;
 - `archives/public_youtube700.tar.gz` (for youtube speech).
