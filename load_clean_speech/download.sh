@@ -1,29 +1,29 @@
 #!/bin/bash
 
+clean_data_directory=$1
+noise_data_directory=$1
+
 mirror="https://azureopendatastorage.blob.core.windows.net/openstt/ru_open_stt_opus"
 
-while true; do
-        for file in $(cut -f2 -d' ' small_md5sum.lst); do
-                mkdir -p $(dirname ${file})
-                wget -O ${file} -c "${mirror}/${file}"
-        done
+# load clean speech
+cd clean_data_directory
+radio_data="{$mirror}/archives/radio_2.tar.gz"
+youtube_data="{$mirror}/archives/public_youtube700.tar.gz"
 
-        echo ''
-        echo '>>> Checking MD5 digests...'
+curl radio_data | tar -xz
+curl youtube_data | tar -xz
 
-        small_md5sum -c small_md5sum.lst 1>small_md5sum.log 2>/dev/null
-        status=$?
+# load noise
+cd noise_data_directory
 
-        if test $status -eq 0; then
-                rm small_md5sum.log
-                echo '>>> Data is downloaded and checked.'
-                break
-        fi
+wget https://zenodo.org/record/1227121/files/TCAR_16k.zip?download=1
+unzip . TCAR_16k.zip?download=1
+rm -r TCAR_16k.zip?download=1
 
-        for failed in $(grep 'FAILED$' small_md5sum.log | grep -Po '^[^:]+'); do
-                echo ">>> MD5 digest for ${failed} is incorrect, the file will be downloaded again."
-                rm -f ${failed}
-        done
+wget https://zenodo.org/record/1227121/files/DKITCHEN_16k.zip?download=1
+unzip . DKITCHEN_16k.zip?download=1
+rm -r DKITCHEN_16k.zip?download=1
 
-        echo ''
-done
+wget https://zenodo.org/record/1227121/files/NPARK_16k.zip?download=1
+unzip . NPARK_16k.zip?download=1
+rm -r NPARK_16k.zip?download=1
