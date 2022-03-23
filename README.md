@@ -8,7 +8,9 @@ noised datasets with russian speech and additional supportive scripts for datase
 Bellow are the steps used for finetuning DTLN-denoiser on russian speech which are needed because as the experiments showed both denoisers perform without finetuning poorly.
 
 
-## Datasets:
+## Dataset preparation
+
+### Download 
 For creating noise dataset we used 3 types of noise from [Demand collection](https://zenodo.org/record/1227121#.YjrfYxBBy3K):
 - [CAR](https://zenodo.org/record/1227121/files/TCAR_16k.zip?download=1)
 - [KITCHEN](https://zenodo.org/record/1227121/files/DKITCHEN_16k.zip?download=1)
