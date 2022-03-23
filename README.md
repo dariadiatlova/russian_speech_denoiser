@@ -5,8 +5,7 @@ This repository consists of implemented demoisers' forks: [DTLN](https://github.
 repository which scripts were used as a base for creating 
 noised datasets with russian speech and additional supportive scripts for dataset prepartion. 
 
-Bellow are the steps used for finetuning DTLN-denoiser on russian speech which are needed because as the experiments showed
-the both denoisers perform without finetuning poorly.
+Bellow are the steps used for finetuning DTLN-denoiser on russian speech which are needed because as the experiments showed both denoisers perform without finetuning poorly.
 
 
 ## Datasets:
