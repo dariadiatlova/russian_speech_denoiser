@@ -21,5 +21,5 @@ Audio and trascripts can be dowloaded via `wget` from
     https://azureopendatastorage.blob.core.windows.net/openstt/ru_open_stt_opus/ 
     
 with adding the following suffixes to the link above: 
-- `archives/radio_2.tar.gz` (for radio speech;
-- `archives/public_youtube700.tar.gz` (for youtube speech).
+- `archives/radio_2.tar.gz` for radio speech;
+- `archives/public_youtube700.tar.gz` for youtube speech.
