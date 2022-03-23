@@ -1,4 +1,4 @@
-# Denoiser for russian speech
+# Denoiser for Russian speech
 
 This repository consists of implemented demoisers' forks: [DTLN](https://github.com/breizhn/DTLN) and 
 [Demucs](https://github.com/facebookresearch/denoiser), a fork of [DNS](https://github.com/microsoft/DNS-Challenge) 
