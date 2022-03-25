@@ -2,7 +2,6 @@
 
 opus_files_directory=$1
 wav_files_directory=$2
-#txt_files_directory=$3
 
 # write to array all files with a .opus extansion
 FILES=$(find $opus_files_directory -type f -name "*.opus")
@@ -19,13 +18,10 @@ opus_to_wav() {
 
   opus_files_directory=$1
   wav_files_directory=$2
-#  txt_files_directory=$3
   f=$3
 
   filename="${f##*/}"
   filename="${filename%.*}"
-  # copies transcript into new directory
-#  cp "$opus_files_directory/${filename}.txt" "$txt_files_directory/${filename}.txt"
   # converts opus into wav
   ffmpeg -i "$f" "$wav_files_directory/${filename}.wav";
 }
