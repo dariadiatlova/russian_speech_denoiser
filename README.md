@@ -13,6 +13,14 @@ Bellow are the steps used for finetuning DTLN-denoiser on russian speech which a
 ## Dataset preparation
 
 ### Download 
+
+Run [download.sh](speech_preprocessing/download.sh) script with two arguments:
+        
+        chmod +x download.sh
+        ./download.sh <absolute_path_to_clean_speech_directory> <absolute_path_to_noise_directory> 
+
+Or alternitievely load all data separetely: 
+
 #### Noise
 For creating noised dataset we used 3 types of noise from [Demand collection](https://zenodo.org/record/1227121#.YjrfYxBBy3K):
 - [CAR](https://zenodo.org/record/1227121/files/TCAR_16k.zip?download=1)
