@@ -36,3 +36,8 @@ Audio and trascripts can be dowloaded via `wget` from
 with adding the following suffixes to the link above: 
 - `archives/radio_2.tar.gz` for radio speech;
 - `archives/public_youtube700.tar.gz` for youtube speech.
+
+#### Reverberation
+For proper quality we will add reverb to our clean audio dataset, please load rirs provided in DNS Challange via wget: 
+
+    https://dns4public.blob.core.windows.net/dns4archive/datasets_fullband/datasets_fullband.impulse_responses_000.tar.bz2
