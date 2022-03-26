@@ -43,7 +43,9 @@ Use `tar -xvf <downloaded_archive_name.tar.gz>` to unpack downloaded files. Due 
 #### Reverberation
 For proper quality we will add reverb to our clean audio dataset, please load rirs provided in DNS Challange: 
 
-   [RIR26](https://www.openslr.org/resources/26/sim_rir_16k.zip)
-   [RIR28](https://www.openslr.org/resources/28/rirs_noises.zip)
-   [RIR_table_simple.csv](DNS-Challange/datasets/RIR_table_simple.csv)
+   - [RIR26](https://www.openslr.org/resources/26/sim_rir_16k.zip)
+   
+   - [RIR28](https://www.openslr.org/resources/28/rirs_noises.zip)
+   
+   - [RIR_table_simple.csv](DNS-Challange/datasets/RIR_table_simple.csv)
     
