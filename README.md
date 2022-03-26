@@ -41,6 +41,9 @@ with adding the following suffixes to the link above:
 Use `tar -xvf <downloaded_archive_name.tar.gz>` to unpack downloaded files. Due to the server-errors files can be partly downloaded but will be opened correctly. 
 
 #### Reverberation
-For proper quality we will add reverb to our clean audio dataset, please load rirs provided in DNS Challange via wget: 
+For proper quality we will add reverb to our clean audio dataset, please load rirs provided in DNS Challange: 
 
-    https://dns4public.blob.core.windows.net/dns4archive/datasets_fullband/datasets_fullband.impulse_responses_000.tar.bz2
+   [RIR26](https://www.openslr.org/resources/26/sim_rir_16k.zip)
+   [RIR28](https://www.openslr.org/resources/28/rirs_noises.zip)
+   [RIR_table_simple.csv](DNS-Challange/datasets/RIR_table_simple.csv)
+    
