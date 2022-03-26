@@ -37,6 +37,9 @@ with adding the following suffixes to the link above:
 - `archives/radio_2.tar.gz` for radio speech;
 - `archives/public_youtube700.tar.gz` for youtube speech.
 
+#### Note
+Use `tar -xvf <downloaded_archive_name.tar.gz>` to unpack downloaded files. Due to the server-errors files can be partly downloaded but will be opened correctly. 
+
 #### Reverberation
 For proper quality we will add reverb to our clean audio dataset, please load rirs provided in DNS Challange via wget: 
 
