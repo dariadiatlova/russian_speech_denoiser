@@ -52,7 +52,7 @@ For proper quality we will add reverb to our clean audio dataset, please load ri
 
 ### Create noised audio files
 
-We used the framework [noisyspeech_synthesizer_singleprocess.py](https://github.com/microsoft/DNS-Challenge/blob/master/noisyspeech_synthesizer_singleprocess.py) to create [custom_noisyspeech_synthesizer.py](DNS-Challenge @ 96ea2aa/blob/master/custom_noisyspeech_synthesizer.py) script. Run the `custom_noisyspeech_synthesizer.py` from root-directory with custom argumets provided in [custom_noisyspeech_synthesizer.cfg](DNS-Challange/blob/master/custom_noisyspeech_synthesizer.cfg) file.
+We used the framework [noisyspeech_synthesizer_singleprocess.py](https://github.com/microsoft/DNS-Challenge/blob/master/noisyspeech_synthesizer_singleprocess.py) to create [custom_noisyspeech_synthesizer.py](https://github.com/dariadiatlova/DNS-Challenge/blob/master/custom_noisyspeech_synthesizer.py) script. Run the `custom_noisyspeech_synthesizer.py` from root-directory with custom argumets provided in [custom_noisyspeech_synthesizer.cfg](https://github.com/dariadiatlova/DNS-Challenge/blob/master/custom_noisyspeech_synthesizer.cfg) file.
 
 
 The basic idea of the script:
