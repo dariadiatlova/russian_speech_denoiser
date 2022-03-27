@@ -48,4 +48,31 @@ For proper quality we will add reverb to our clean audio dataset, please load ri
    - [RIR28](https://www.openslr.org/resources/28/rirs_noises.zip)
    
    - [RIR_table_simple.csv](DNS-Challange/datasets/RIR_table_simple.csv)
+
+
+### Create noised audio files
+
+We used the framework [noisyspeech_synthesizer_singleprocess.py](https://github.com/microsoft/DNS-Challenge/blob/master/noisyspeech_synthesizer_singleprocess.py) to create [custom_noisyspeech_synthesizer.py](DNS-Challange/custom_noisyspeech_synthesizer.py) script. Run the `custom_noisyspeech_synthesizer.py` from root-directory with custom argumets provided in [custom_noisyspeech_synthesizer.cfg](DNS-Challange/custom_noisyspeech_synthesizer.cfg) file.
+
+
+The basic idea of the script:
+
+- choose 6 or less random audio files from your clean speech folder;
+
+- stack choosen audio files padded with zeros to create audios of fixed length (provided in transcript);
+
+- stack transcripts corresponded to the choosen audio files, so you can run ASR and commpute WER;
+
+- pick random folder from downloaded noise-types;
+
+- pick random SNR level from the range you provided in a config;
+
+- generate a mixture of noise and clean audio, considering choosen SNR-level.
+
+
+Note: the are 2 cheet-hardcoded places in the script:
+
+- we use 6 audiofiles as audio files with the clean speech are about 2 sec and the target length of our audio files is 15 seconds.
+
+- there's a `TCAR` noise type that sounds much quiter then the other noise types, so we substract 20 from randomly choosen `SNR` level if use this noise type.
     
