@@ -14,7 +14,7 @@ Bellow are the steps used for finetuning DTLN-denoiser on russian speech which a
 
 ### Download 
 
-Run [download.sh](speech_preprocessing/download.sh) script with two arguments:
+Run [download.sh](speech_preprocessing/download_open_stt.sh) script with two arguments:
         
         chmod +x download.sh
         ./download.sh <absolute_path_to_clean_speech_directory> <absolute_path_to_noise_directory> 

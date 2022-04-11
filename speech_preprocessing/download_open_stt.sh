@@ -7,10 +7,8 @@ mirror="https://azureopendatastorage.blob.core.windows.net/openstt/ru_open_stt_o
 
 # load clean speech
 cd clean_data_directory
-radio_data="{$mirror}/archives/radio_2.tar.gz"
 youtube_data="{$mirror}/archives/public_youtube700.tar.gz"
 
-curl radio_data | tar -xz
 curl youtube_data | tar -xz
 
 # load noise
