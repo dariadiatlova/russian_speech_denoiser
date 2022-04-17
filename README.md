@@ -47,12 +47,16 @@ Use `tar -xvf <downloaded_archive_name.tar.gz>` to unpack downloaded files. Due 
  
 ## Create noised audio files
 
-1. Configure [youtube_noisyspeech_synthesizer.cfg](https://github.com/dariadiatlova/DNS-Challenge/blob/master/noisy_speech_synthesis/configs/youtube_noisyspeech_synthesizer.cfg) and run [youtube_noisyspeech_synthesizer.py](https://github.com/dariadiatlova/DNS-Challenge/blob/master/noisy_speech_synthesis/configs/youtube_noisyspeech_synthesizer.py).
+For training our denoiser we create dataset that consists of 4 parts `120 hours` of speech in total. 
 
-2. Configure [cv_noisyspeech_synthesizer.cfg](https://github.com/dariadiatlova/DNS-Challenge/blob/master/noisy_speech_synthesis/configs/cv_noisyspeech_synthesizer.cfg) and run [cvnoisyspeech_synthesizer.py](https://github.com/dariadiatlova/DNS-Challenge/blob/master/noisy_speech_synthesis/configs/cv_noisyspeech_synthesizer.py).
+1. `40 hours:` configure [youtube_noisyspeech_synthesizer.cfg](https://github.com/dariadiatlova/DNS-Challenge/blob/master/noisy_speech_synthesis/configs/youtube_noisyspeech_synthesizer.cfg) and run [youtube_noisyspeech_synthesizer.py](https://github.com/dariadiatlova/DNS-Challenge/blob/master/noisy_speech_synthesis/configs/youtube_noisyspeech_synthesizer.py).
+
+2. `40 hours:` configure [cv_noisyspeech_synthesizer.cfg](https://github.com/dariadiatlova/DNS-Challenge/blob/master/noisy_speech_synthesis/configs/cv_noisyspeech_synthesizer.cfg) and run [cv_noisyspeech_synthesizer.py](https://github.com/dariadiatlova/DNS-Challenge/blob/master/noisy_speech_synthesis/configs/cv_noisyspeech_synthesizer.py).
+3. `20 hours:` configure [youtube_fake_noisyspeech_synthesizer.cfg](https://github.com/dariadiatlova/DNS-Challenge/blob/master/noisy_speech_synthesis/configs/youtube_fake_noisyspeech_synthesizer.cfg) and run [youtube_fake_noisyspeech_synthesizer.py](https://github.com/dariadiatlova/DNS-Challenge/blob/master/noisy_speech_synthesis/configs/youtube_fake_noisyspeech_synthesizer.py).
+4. `20 hours:` configure [cv_fake_noisyspeech_synthesizer.cfg](https://github.com/dariadiatlova/DNS-Challenge/blob/master/noisy_speech_synthesis/configs/cv_fake_noisyspeech_synthesizer.cfg) and run [cv_fake_noisyspeech_synthesizer.py](https://github.com/dariadiatlova/DNS-Challenge/blob/master/noisy_speech_synthesis/configs/cv_fake_noisyspeech_synthesizer.py).
 
 
-The basic idea of the script:
+The basic idea of the first 2 scripts:
 
 - choose 6 or less random audio files from your clean speech folder;
 
@@ -66,6 +70,7 @@ The basic idea of the script:
 
 - generate a mixture of noise and clean audio, considering choosen SNR-level.
 
+The second 2 scripts also add reverberation and create transcritions but the noisy audio created is actually clean. So we add these samples to make sure that our denoiser processeses clean speech in a correct way.
 
 Note: the are 2 cheet-hardcoded places in the script:
 
