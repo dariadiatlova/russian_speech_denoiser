@@ -2,6 +2,7 @@ import os
 import numpy as np
 import shutil
 import re
+from tqdm import tqdm
 
 
 COMMON_VOICE_CLEAN = "/home/dadyatlova_1/dataset/main/common_voice/clean_wav/"
@@ -12,9 +13,9 @@ YOUTUBE_CLEAN = "/home/dadyatlova_1/dataset/main/youtube/clean_wav/"
 YOUTUBE_NOISY = "/home/dadyatlova_1/dataset/main/youtube/noised_wav/"
 YOUTUBE_TXT = "/home/dadyatlova_1/dataset/main/youtube/txt/"
 
-ASR_CLEAN_DIR = "/home/dadyatlova_1/dataset/main/asr/clean"
-ASR_NOISY_DIR = "/home/dadyatlova_1/dataset/main/asr/noisy"
-ASR_TXT_DIR = "/home/dadyatlova_1/dataset/main/asr/txt"
+ASR_CLEAN_DIR = "/home/dadyatlova_1/dataset/main/asr/clean/"
+ASR_NOISY_DIR = "/home/dadyatlova_1/dataset/main/asr/noisy/"
+ASR_TXT_DIR = "/home/dadyatlova_1/dataset/main/asr/txt/"
 
 
 def __copy(filenames, cv: bool = True):
@@ -23,7 +24,8 @@ def __copy(filenames, cv: bool = True):
     TXT_DIR = COMMON_VOICE_TXT if cv else YOUTUBE_TXT
     prefix = "CV_cv_" if cv else "YouTube_t"
 
-    for filename in filenames:
+    for filename in tqdm(filenames):
+
         shutil.copy(CLEAN_DIR + filename, ASR_CLEAN_DIR + filename)
         shutil.copy(NOISY_DIR + filename, ASR_NOISY_DIR + filename)
 
@@ -40,11 +42,13 @@ def __copy(filenames, cv: bool = True):
 
 def main(n_files: int = 1000):
     cv_filenames = next(os.walk(COMMON_VOICE_CLEAN))[2]
+    print("Common voice files are read.")
     np.random.shuffle(cv_filenames)
     cv_filenames = cv_filenames[: n_files]
     __copy(cv_filenames, cv=True)
 
     youtube_filenames = next(os.walk(YOUTUBE_CLEAN))[2]
+    print("YouTube files are read.")
     np.random.shuffle(youtube_filenames)
     youtube_filenames = youtube_filenames[: n_files]
     __copy(youtube_filenames, cv=False)
