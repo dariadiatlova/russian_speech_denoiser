@@ -38,7 +38,7 @@ def __copy(filenames, cv: bool = True):
         shutil.copy(TXT_DIR + txt_original_name, ASR_TXT_DIR + txt_new_filename)
 
 
-def main(n_files: 1000):
+def main(n_files: int = 1000):
     cv_filenames = next(os.walk(COMMON_VOICE_CLEAN))[2]
     np.random.shuffle(cv_filenames)
     cv_filenames = cv_filenames[: n_files]
