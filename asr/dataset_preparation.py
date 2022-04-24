@@ -49,3 +49,7 @@ def main(n_files: 1000):
     youtube_filenames = youtube_filenames[: n_files]
     __copy(youtube_filenames, cv=False)
     print(f"Saved {n_files * 2} to {ASR_CLEAN_DIR}, {ASR_NOISY_DIR} and {ASR_TXT_DIR} directories!")
+
+
+if __name__ == "__main__":
+    main()
