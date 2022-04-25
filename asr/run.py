@@ -6,7 +6,7 @@ from omegaconf import OmegaConf
 
 from asr import ASR_ROOT_PATH
 
-CONFIG_PATH = f"{ASR_ROOT_PATH}/config.yaml"
+CONFIG_PATH = f"{ASR_ROOT_PATH}/conf/asr_config.yaml"
 
 
 class ASR:

@@ -1,0 +1,4 @@
+language: "ru" # language code for launching pretrained asr
+transcription_dir_path: "/home/dadyatlova_1/dataset/main/asr/clean_transcripts" # path to the directory where transcription txt files will be created
+true_transcription_dir_path: "/home/dadyatlova_1/dataset/main/asr/txt" # path to the directory with transcriptions
+wav_dir_path: "/home/dadyatlova_1/dataset/main/asr/clean" # path to the directory with wav files to transcribe
