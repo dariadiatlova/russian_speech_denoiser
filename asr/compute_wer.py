@@ -1,4 +1,6 @@
 import os
+import re
+
 import numpy as np
 
 from typing import Iterable, Dict
@@ -50,17 +52,24 @@ def main(args: Dict) -> None:
     filenames = next(os.walk(target_transcripts))[2]
 
     for filename in tqdm(filenames):
+        asr_filename = f"{asr_transcripts}/{filename}"
         try:
             with open(f"{target_transcripts}/{filename}") as f:
                 a = f.readlines()
 
-            with open(f"{asr_transcripts}/{filename}") as f:
+            # demucs enhanced files have different filename
+            if args["enhanced"]:
+                pattern = re.compile(r"(.*)\.wav")
+                found = pattern.search(filename)
+                asr_filename = found.group(1) + "_enhanced.wav"
+
+            with open(asr_filename) as f:
                 b = f.readlines()
 
             if a is not None and b is not None:
                 edit_distances.append(__edit_distance(a, b))
         except FileNotFoundError:
-            print(f"{asr_transcripts}/{filename} doesn't exist :(")
+            print(f"{asr_filename} doesn't exist :(")
     print(f"WER: {np.mean(edit_distances)}")
 
 

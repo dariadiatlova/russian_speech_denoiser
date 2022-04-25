@@ -1,2 +1,3 @@
 transcription_dir_path: "/home/dadyatlova_1/dataset/main/asr/clean_transcripts" # path to the directory where transcription txt files will be created
 true_transcription_dir_path: "/home/dadyatlova_1/dataset/main/asr/txt" # path to the directory with transcriptions
+enhanced: false # if true for transcripts paths will search files with suffix "<target_file_name>"_enhanced.wav
