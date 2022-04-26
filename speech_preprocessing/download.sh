@@ -25,3 +25,23 @@ rm -r DKITCHEN_16k.zip?download=1
 wget https://zenodo.org/record/1227121/files/NPARK_16k.zip?download=1
 unzip . NPARK_16k.zip?download=1
 rm -r NPARK_16k.zip?download=1
+
+wget https://zenodo.org/record/1227121/files/PCAFETER_16k.zip?download=1
+unzip . PCAFETER_16k.zip?download=1
+rm -r PCAFETER_16k.zip?download=1
+
+wget https://zenodo.org/record/1227121/files/STRAFFIC_16k.zip?download=1
+unzip . STRAFFIC_16k.zip?download=1
+rm -r STRAFFIC_16k.zip?download=1
+
+wget https://zenodo.org/record/1227121/files/TMETRO_16k.zip?download=1
+unzip . TMETRO_16k.zip?download=1
+rm -r TMETRO_16k.zip?download=1
+
+wget https://zenodo.org/record/1227121/files/OMEETING_16k.zip?download=1
+unzip . OMEETING_16k.zip?download=1
+rm -r OMEETING_16k.zip?download=1
+
+wget https://zenodo.org/record/1227121/files/OOFFICE_16k.zip?download=1
+unzip . OOFFICE_16k.zip?download=1
+rm -r OOFFICE_16k.zip?download=1
