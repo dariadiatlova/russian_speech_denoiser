@@ -1,7 +1,7 @@
 #!/bin/bash
 
 clean_data_directory=$1
-noise_data_directory=$1
+noise_data_directory=$2
 
 mirror="https://azureopendatastorage.blob.core.windows.net/openstt/ru_open_stt_opus"
 
