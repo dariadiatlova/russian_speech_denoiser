@@ -59,9 +59,9 @@ def main(args: Dict) -> None:
 
             # demucs enhanced files have different filename
             if args["enhanced"]:
-                pattern = re.compile(r"(.*)\.wav")
+                pattern = re.compile(r"(.*)\.txt")
                 found = pattern.search(filename)
-                asr_filename = found.group(1) + "_enhanced.wav"
+                asr_filename = f"{asr_transcripts}/{found.group(1)}_enhanced.txt"
 
             with open(asr_filename) as f:
                 b = f.readlines()
