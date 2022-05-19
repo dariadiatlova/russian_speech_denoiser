@@ -66,7 +66,9 @@ def main(args: Dict) -> None:
             with open(asr_filename) as f:
                 b = f.readlines()
 
-            if a is not None and b is not None:
+            if a is not None and b is not None and len(a) > 0:
+                a = re.sub("[^\w\s]", "", a[0]).split()
+                b = re.sub("[^\w\s]", "", b[0]).split()
                 word_error_rates.append(__edit_distance(a, b) / len(a))
         except FileNotFoundError:
             print(f"{asr_filename} doesn't exist :(")
