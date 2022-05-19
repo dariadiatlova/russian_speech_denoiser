@@ -46,7 +46,7 @@ def __edit_distance(a: Iterable, b: Iterable) -> int:
 
 
 def main(args: Dict) -> None:
-    edit_distances = []
+    word_error_rates = []
     target_transcripts = args["true_transcription_dir_path"]
     asr_transcripts = args["transcription_dir_path"]
     filenames = next(os.walk(target_transcripts))[2]
@@ -67,10 +67,10 @@ def main(args: Dict) -> None:
                 b = f.readlines()
 
             if a is not None and b is not None:
-                edit_distances.append(__edit_distance(a, b))
+                word_error_rates.append(__edit_distance(a, b) / len(a))
         except FileNotFoundError:
             print(f"{asr_filename} doesn't exist :(")
-    print(f"WER: {np.mean(edit_distances)}")
+    print(f"WER: {np.mean(word_error_rates)}")
 
 
 if __name__ == "__main__":
